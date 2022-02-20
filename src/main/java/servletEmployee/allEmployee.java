@@ -33,6 +33,7 @@ public class allEmployee extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		EmployeeService es = new EmployeeService();
+		
 		List<Employee>employees = es.getEmployees();
 		
 		if (employees == null || employees.size() == 0) {

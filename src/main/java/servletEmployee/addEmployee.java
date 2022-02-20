@@ -32,14 +32,19 @@ public class addEmployee extends HttpServlet {
         
         try {
         	String address = request.getParameter("address");//getParameter()retourne la variable sous forme de string
-            String firstName = request.getParameter("first_name");
+            String firstName = request.getParameter("firstName");
             String hourlyRate = request.getParameter("hourlyRate");
             //BigDecimal hourlyRate = new BigDecimal( request.getParameter("hourly_rate"));
-            String lastName = request.getParameter("last_name");
-            String phoneNumber = request.getParameter("phone_number");
+            String lastName = request.getParameter("lastName");
+            String phoneNumber = request.getParameter("phoneNumber");
             String remarks = request.getParameter("remarks");
             
-            
+            System.out.println(address);
+            System.out.println(firstName);
+            System.out.println(hourlyRate);
+            System.out.println(lastName);
+            System.out.println(phoneNumber);
+            System.out.println(remarks);
             
            
             //création des employees
@@ -55,8 +60,17 @@ public class addEmployee extends HttpServlet {
             								  phoneNumber,
             								  remarks); 
             
+            System.out.println(address);
+            System.out.println(firstName);
+            System.out.println(hourlyRate);
+            System.out.println(lastName);
+            System.out.println(phoneNumber);
+            System.out.println(remarks);
+            
            
             es.addEmployee(employee);
+            
+            response.sendRedirect("./employees");
             
            
 			

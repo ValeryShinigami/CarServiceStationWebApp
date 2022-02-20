@@ -52,6 +52,10 @@
                     </c:forEach>
                 </select>
             </label><br>
+              <label>
+                Indicate final cost Employee (PLN): <input type="number" name="costEmployeeHourlyRate" placeholder="final Employee cost" min="0"
+                                                  step="0.01">
+            </label> <br>
             <label>
                 Indicate final cost (PLN): <input type="number" name="costFinalToPay" placeholder="final cost" min="0"
                                                   step="0.01">

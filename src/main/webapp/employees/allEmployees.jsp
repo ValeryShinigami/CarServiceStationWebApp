@@ -36,12 +36,12 @@
                 <tr>
                 <!-- ${objet.attribut}-->
                     <td>${count.count}</td>
-                    <td>${customer.firstName}</td>
-                    <td>${customer.lastName}</td>
-                    <td>${customer.adress}</td>
-                    <td>${customer.phoneNumber}</td>
-                    <td>${customer.remarks}</td>
-                    <td>${customer.hourlyRate}</td>
+                    <td>${employee.firstName}</td>
+                    <td>${employee.lastName}</td>
+                    <td>${employee.address}</td>
+                    <td>${employee.phoneNumber}</td>
+                    <td>${employee.remarks}</td>
+                    <td>${employee.hourlyRate}</td>
                     <td>
                         <a href="./update-employee?id=${employee.id}"
                            class="btn btn-warning rounded-0 text-light m-1">Update</a>

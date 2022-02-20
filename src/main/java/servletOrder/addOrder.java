@@ -45,15 +45,23 @@ public class addOrder extends HttpServlet {
       
         
         try {
-        	String acceptanceDate = request.getParameter("acceptance_date");
-            String plannedRepairStartDate = request.getParameter("planned_repair_start_date");
-            String actualRepairStartDate =request.getParameter("actual_repair_start_date");
-            String costEmployeeHourlyRate = request.getParameter("cost_employee_hourly_rate");
-            String costFinalToPay = request.getParameter("cost_final_to_pay"); 
-            String  costUsedParts = request.getParameter("cost_used_parts");
-            String problemDescription = request.getParameter("problem_description");  
-            String repairDescription = request.getParameter("repair_description");
-            String repairTimeInHours = request.getParameter("repair_time_in_hours");
+        	String acceptanceDate = request.getParameter("acceptanceDate");
+            String plannedRepairStartDate = request.getParameter("plannedRepairStartDate");
+            String actualRepairStartDate =request.getParameter("actualRepairStartDate");
+            String costEmployeeHourlyRate = request.getParameter("costEmployeeHourlyRate");
+            String costFinalToPay = request.getParameter("costFinalToPay"); 
+            String  costUsedParts = request.getParameter("costUsedParts");
+            String problemDescription = request.getParameter("problemDescription");  
+            String repairDescription = request.getParameter("repairDescription");
+            String repairTimeInHours = request.getParameter("repairTimeInHours");
+            
+            System.out.println(acceptanceDate);
+            System.out.println(plannedRepairStartDate);
+            System.out.println(actualRepairStartDate);
+            System.out.println(costEmployeeHourlyRate);
+            System.out.println(costFinalToPay);
+            System.out.println(costUsedParts);
+            
             EmployeeService employeeService = new EmployeeService();
            // Employee employee = employeeService.getEmployeeById(Integer.valueOf("assignedEmployeeId")); 
             Employee employee = employeeService.getEmployeeById(Integer.parseInt(request.getParameter("assignedEmployeeId")));  
@@ -68,26 +76,36 @@ public class addOrder extends HttpServlet {
            
                    
             	 OrderService orderService = new OrderService();
-                 Order order = new Order(Date.valueOf(acceptanceDate),
-                 						Date.valueOf(plannedRepairStartDate),
-                 						Date.valueOf(actualRepairStartDate),
-                 						BigDecimal.valueOf(Double.valueOf(costEmployeeHourlyRate)), 
-                 						//Double.valueOf(costEmployeeHourlyRate),
-                 						BigDecimal.valueOf(Double.valueOf(costFinalToPay)), 
-                 						//Double.valueOf(costFinalToPay),
-                 						BigDecimal.valueOf(Double.valueOf(costUsedParts)), 
-                 						//Double.valueOf(costUsedParts),
-                 						problemDescription,       						
-                 						repairDescription,
-                 						BigDecimal.valueOf(Double.valueOf(repairTimeInHours)), 
-                 						//Double.valueOf(repairTimeInHours ),
-                 						employee,
-                 						vehicle,
-                 						status);
+                 Order order = new Order( Date.valueOf(acceptanceDate),
+                 						  Date.valueOf(plannedRepairStartDate),
+                 						  Date.valueOf(actualRepairStartDate),
+                 						  new BigDecimal(costEmployeeHourlyRate),
+                 						  new BigDecimal(costFinalToPay), 
+                 						  new BigDecimal(costUsedParts), 
+                 						  problemDescription,       						
+                 						  repairDescription,
+                 						  new BigDecimal(repairTimeInHours), 
+                 						  employee,
+                 						  vehicle,
+                 						  status);
+                 
+                 System.out.println(acceptanceDate);
+                 System.out.println(plannedRepairStartDate);
+                 System.out.println(actualRepairStartDate);
+                 System.out.println(costEmployeeHourlyRate);
+                 System.out.println(costFinalToPay);
+                 System.out.println(costUsedParts);
+                 
+                /* System.out.println(problemDescription);
+                 System.out.println(repairDescription);
+                 System.out.println(repairTimeInHours);
+                 System.out.println(employee);
+                 System.out.println(vehicle);
+                 System.out.println(status);*/
                  						
          		orderService.addOrder(order);
          		
-         		
+         		response.sendRedirect("./orders");
 				
 			} catch (NumberFormatException e) {
 				// TODO: handle exception
@@ -95,7 +113,7 @@ public class addOrder extends HttpServlet {
 			}
     	         
 
-           response.sendRedirect("./orders");
+           
 				
             
     }
